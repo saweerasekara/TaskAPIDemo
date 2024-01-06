@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskAPI", "TaskAPI\TaskAPI.csproj", "{B85A6384-9884-48EA-8153-74198238A033}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskAPI", "TaskAPI\TaskAPI.csproj", "{B85A6384-9884-48EA-8153-74198238A033}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskAPI.Models", "TaskAPI.Models\TaskAPI.Models.csproj", "{F6F02F0C-0691-494E-A613-0793DF138105}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskAPI.Services", "TaskAPI.Services\TaskAPI.Services.csproj", "{E7EE0383-41A7-4FB8-9DDB-59DF2C9BCC30}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{B85A6384-9884-48EA-8153-74198238A033}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B85A6384-9884-48EA-8153-74198238A033}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B85A6384-9884-48EA-8153-74198238A033}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6F02F0C-0691-494E-A613-0793DF138105}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6F02F0C-0691-494E-A613-0793DF138105}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6F02F0C-0691-494E-A613-0793DF138105}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6F02F0C-0691-494E-A613-0793DF138105}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7EE0383-41A7-4FB8-9DDB-59DF2C9BCC30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7EE0383-41A7-4FB8-9DDB-59DF2C9BCC30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7EE0383-41A7-4FB8-9DDB-59DF2C9BCC30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7EE0383-41A7-4FB8-9DDB-59DF2C9BCC30}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
