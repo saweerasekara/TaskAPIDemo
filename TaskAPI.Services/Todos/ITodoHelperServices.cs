@@ -1,6 +1,6 @@
 ﻿using TaskAPI.Models;
 
-namespace TaskAPI.HelperServices
+namespace TaskAPI.Services
 {
     public interface ITodoHelperServices
     {

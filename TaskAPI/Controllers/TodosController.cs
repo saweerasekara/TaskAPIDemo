@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using TaskAPI.HelperServices;
+using TaskAPI.Services;
 
 namespace TaskAPI.Controllers
 {
-    [Route("api/v1/[controller]")]
+    [Route("api/v1/todos")]
     [ApiController]
     public class TodosController : ControllerBase
     {
@@ -18,13 +18,17 @@ namespace TaskAPI.Controllers
         public IActionResult GetTodos()
         {
             var todos = todoHelperServices.AllTodos();
+            if (todos == null)
+                return NotFound();
             return Ok(todos);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id?}")]
         public IActionResult GetTodo(int id)
         {
             var todos = todoHelperServices.GetById(id);
+            if(todos == null)
+                return NotFound();
             return Ok(todos);
         }
     }
