@@ -8,7 +8,8 @@ namespace TaskAPI.Controllers
     public class TodosController : ControllerBase
     {
         private readonly ITodoHelperServices todoHelperServices;
-        public TodosController(ITodoHelperServices todoHelperServices) 
+
+        public TodosController(ITodoHelperServices todoHelperServices)
         {
             this.todoHelperServices = todoHelperServices;
         }

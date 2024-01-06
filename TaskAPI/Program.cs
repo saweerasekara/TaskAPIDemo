@@ -1,4 +1,5 @@
 using TaskAPI.HelperServices;
+using TaskAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
-builder.Services.AddScoped<ITodoHelperServices, TodoHelperServices>();
+builder.Services.AddScoped<ITodoHelperServices, TodoDataService>();
 
 var app = builder.Build();
 
