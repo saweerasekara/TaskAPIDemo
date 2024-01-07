@@ -18,13 +18,14 @@ namespace TaskAPI.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAuthors()
+        public IActionResult GetAuthors(string? job, string? search) // read as query string
         {
             //var authors = _authorHelperService.GetAuthors();
-            var authors = _mapper.Map<ICollection<AuthorViewModel>>(_authorHelperService.GetAuthors());
-            if(authors == null)
+            var authors = _authorHelperService.GetAuthors(job, search);
+            var mappedAuthors = _mapper.Map<ICollection<AuthorViewModel>>(authors);
+            if(mappedAuthors == null)
                 return NotFound();
-            return Ok(authors);
+            return Ok(mappedAuthors);
         }
 
         [HttpGet("{id?}")]

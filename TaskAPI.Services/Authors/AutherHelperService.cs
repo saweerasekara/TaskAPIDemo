@@ -10,17 +10,42 @@ namespace TaskAPI.Services.Authors
 {
     public class AutherHelperService : IAuthorHelperService
     {
-        private readonly TodoDBContext _todoDBContext = new TodoDBContext();
+        private readonly DBContext _dbContext = new DBContext();
         public AutherHelperService()
         {
-            
+
         }
 
-        public Author GetAuthor(int id) => _todoDBContext.Authors.Find(id);
+        public Author GetAuthor(int id) => _dbContext.Authors.Find(id);
 
         public List<Author> GetAuthors()
         {
-            return _todoDBContext.Authors.ToList();
+            return _dbContext.Authors.ToList();
+        }
+
+        public List<Author> GetAuthors(string job, string search)
+        {
+            if (string.IsNullOrEmpty(job) && string.IsNullOrEmpty(search))
+                return GetAuthors();
+
+            var data = _dbContext.Authors as IQueryable<Author>;
+
+            if (!string.IsNullOrEmpty(job))
+            {
+                job = job.Trim();
+                data = data.Where(record => record.JobRole == job);
+
+            }
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                search = search.Trim();
+                data = data.Where(record => 
+                    record.FullName.Contains(search) || record.City.Contains(search));
+            }
+
+            return data.ToList();
+
         }
     }
 }
