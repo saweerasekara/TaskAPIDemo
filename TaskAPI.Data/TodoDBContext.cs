@@ -19,10 +19,10 @@ namespace TaskAPI.Data
         {
             modelBuilder.Entity<Author>().HasData(new Author[]
             {
-                new Author { Id = 1, FullName = "Name 1"},
-                new Author { Id = 2, FullName = "Name 2"},
-                new Author { Id = 3, FullName = "Name 3"},
-                new Author { Id = 4, FullName = "Name 4"},
+                new Author { Id = 1, FullName = "Name 1", AddressNo = "10", Street = "street1", City="city1"},
+                new Author { Id = 2, FullName = "Name 2",AddressNo = "11", Street = "street2", City="city2"},
+                new Author {Id = 3, FullName = "Name 3", AddressNo = "12", Street = "street3", City = "city3"},
+                new Author {Id = 4, FullName = "Name 4", AddressNo = "13", Street = "street4", City = "city4"},
             });
 
             modelBuilder.Entity<Todo>().HasData(new Todo[]

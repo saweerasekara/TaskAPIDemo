@@ -4,6 +4,7 @@ using TaskAPI.Services.Authors;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddControllers( options =>
 {
@@ -24,6 +25,19 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+}
+else
+{
+    app.UseExceptionHandler(app =>
+    {
+
+        app.Run(async context =>
+        {
+            context.Response.StatusCode = 500;
+            await context.Response.WriteAsync("There is an error in server. Please contact administrator.");
+        });
+
+    });
 }
 
 app.UseHttpsRedirection();

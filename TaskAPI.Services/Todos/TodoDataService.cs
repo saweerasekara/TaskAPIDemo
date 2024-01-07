@@ -7,14 +7,16 @@ namespace TaskAPI.Services
     {
         private readonly TodoDBContext _dbContext = new TodoDBContext();
 
-        public List<Todo> AllTodos()
+        public List<Todo> AllTodos(int author)
         {
+            if(author != (int)default)
+                return _dbContext.Todos.Where(record => record.AuthorId == author).ToList();
             return _dbContext.Todos.ToList();
         }
 
-        public Todo GetById(int id)
+        public Todo GetById(int authoerId, int id)
         {
-            return _dbContext.Todos.Where(record => record.Id == id).First();
+            return _dbContext.Todos.FirstOrDefault(record => record.Id == id && record.AuthorId == authoerId);
         }
     }
 }
