@@ -5,7 +5,7 @@ namespace TaskAPI.Services
 {
     public class TodoDataService : ITodoHelperServices
     {
-        private readonly TodoDBContext _dbContext = new TodoDBContext();
+        private readonly DBContext _dbContext = new DBContext();
 
         public List<Todo> AllTodos(int author)
         {
@@ -18,5 +18,6 @@ namespace TaskAPI.Services
         {
             return _dbContext.Todos.FirstOrDefault(record => record.Id == id && record.AuthorId == authoerId);
         }
+
     }
 }
