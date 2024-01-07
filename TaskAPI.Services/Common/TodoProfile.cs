@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TaskAPI.Models;
-using TaskAPI.Services.ViewModels;
+using TaskAPI.Services.Model;
 
 namespace TaskAPI.Services
 {
@@ -13,7 +13,8 @@ namespace TaskAPI.Services
     {
         public TodoProfile()
         {
-            CreateMap<Todo, TodoViewModel>();
+            CreateMap<Todo, TodoDto>();
+            CreateMap<CreateTodoDto, Todo>().ReverseMap();
         }
     }
 }

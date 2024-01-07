@@ -19,5 +19,14 @@ namespace TaskAPI.Services
             return _dbContext.Todos.FirstOrDefault(record => record.Id == id && record.AuthorId == authoerId);
         }
 
+        public Todo AddTodo(int authorId, Todo todo)
+        {
+            todo.AuthorId = authorId;
+            _dbContext.Todos.Add(todo);
+            _dbContext.SaveChanges();
+
+            return _dbContext.Todos.Find(todo.Id);
+        }
+
     }
 }

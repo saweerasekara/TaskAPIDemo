@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TaskAPI.Models;
 
-namespace TaskAPI.Services.ViewModels
+namespace TaskAPI.Services.Model
 {
-    public class TodoViewModel
+    public class CreateTodoDto
     {
-        public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public DateTime Created { get; set; }
