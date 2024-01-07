@@ -4,8 +4,8 @@ namespace TaskAPI.Services
 {
     public interface ITodoHelperServices
     {
-        List<Todo> AllTodos();
+        List<Todo> AllTodos(int author);
 
-        Todo GetById(int id);
+        Todo GetById(int authoerId, int id);
     }
 }
