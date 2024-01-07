@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using TaskAPI.Models;
 using TaskAPI.Services;
 
 namespace TaskAPI.Controllers
@@ -22,19 +23,28 @@ namespace TaskAPI.Controllers
         {
             //var authors = _authorHelperService.GetAuthors();
             var authors = _authorHelperService.GetAuthors(job, search);
-            var mappedAuthors = _mapper.Map<ICollection<AuthorViewModel>>(authors);
+            var mappedAuthors = _mapper.Map<ICollection<AuthorDto>>(authors);
             if(mappedAuthors == null)
                 return NotFound();
             return Ok(mappedAuthors);
         }
 
-        [HttpGet("{id?}")]
+        [HttpGet("{id?}" , Name = "GetAuthors")]
         public IActionResult GetAuthor(int id)
         {
             var author = _authorHelperService.GetAuthor(id);
             if(author == null)
                 return NotFound();
             return Ok(author);
+        }
+
+        [HttpPost]
+        public IActionResult CreateAuthor(CreateAuthorDto author)
+        {
+            var createdAuthor = _authorHelperService.AddAuthor(_mapper.Map<Author>(author));
+            var returnedAuth = _mapper.Map<AuthorDto>(createdAuthor);
+
+            return CreatedAtRoute("GetAuthors", new { id = returnedAuth.Id } , returnedAuth);
         }
     }
 }

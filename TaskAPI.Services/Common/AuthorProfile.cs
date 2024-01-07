@@ -12,8 +12,9 @@ namespace TaskAPI.Services
     {
         public AuthorProfile()
         {
-            CreateMap<Author, AuthorViewModel>().
+            CreateMap<Author, AuthorDto>().
                  ForMember(dest => dest.Address, opt => opt.MapFrom(src => $"{src.AddressNo} {src.Street} {src.City}"));
+            CreateMap<Author, CreateAuthorDto>().ReverseMap();
         }
 
     }
